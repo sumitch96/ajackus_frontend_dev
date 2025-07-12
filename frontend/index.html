@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Directory</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <div class="main-container">
+
+    <!-- LEFT SECTION -->
+    <div class="left-section">
+      <header class="header">
+        <h1>Employee Directory</h1>
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search by name or email" />
+          <button onclick="filterEmployees()" id="filter-btn">Filter</button>
+        </div>
+      </header>
+
+      <section class="controls">
+        <div>
+          Sort:
+          <select id="sortSelect">
+            <option value="">--Select--</option>
+            <option value="name">Name</option>
+            <option value="department">Department</option>
+          </select>
+        </div>
+
+        <div>
+          Show:
+          <select>
+            <option>10</option>
+            <option>20</option>
+            <option>50</option>
+          </select>
+        </div>
+
+        <button class="add-btn" id="openModalBtn">Add Employee</button>
+      </section>
+
+      <main id="employeeList" class="employee-list"></main>
+
+      <footer class="footer">
+        © 2025 Employee Directory App. All rights reserved.
+      </footer>
+    </div>
+
+    <!-- RIGHT SECTION -->
+    <div class="right-section">
+      <div class="filter-box">
+        <h3>Filter Employees</h3>
+        <label>First Name:</label>
+        <input type="text" id="filterName" />
+
+        <label>Department:</label>
+        <input type="text" id="filterDept" />
+
+        <label>Role:</label>
+        <input type="text" id="filterRole" />
+
+        <div style="margin-top: 10px;">
+          <button onclick="applyFilter()">Apply</button>
+          <button onclick="resetFilter()">Reset</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODAL -->
+  <div id="addEmployeeModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Add Employee</h2>
+      <form id="employeeForm">
+        <label>First name</label>
+        <input type="text" id="firstName" required />
+
+        <label>Last name</label>
+        <input type="text" id="lastName" required />
+
+        <label>Email</label>
+        <input type="email" id="email" required />
+
+        <label>Department</label>
+        <select id="department" required>
+          <option value="">Select Department</option>
+          <option>HR</option>
+          <option>IT</option>
+          <option>Finance</option>
+          <option>Marketing</option>
+        </select>
+
+        <label>Role</label>
+        <select id="role" required>
+          <option value="">Select Role</option>
+          <option>Manager</option>
+          <option>Developer</option>
+          <option>Analyst</option>
+          <option>Designer</option>
+        </select>
+
+        <div class="modal-buttons">
+          <button type="button" class="cancel-btn">Cancel</button>
+          <button type="submit" class="add-btn">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
